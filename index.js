@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 
 const inquirer = require("inquirer");
+const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // Create a function that returns a license badge based on which license is passed in
@@ -19,6 +20,18 @@ const questions = [
 
     {
         type: "input",
+        name: "email",
+        message: "What is your email address? (Required)",
+    },
+
+    {
+        type: "input",
+        name: "github",
+        message: "What is your GitHub username? (Required)",
+    },
+    
+    {
+        type: "input",
         name: "description",
         message: "Enter a description of your application. (Required)",
     },
@@ -29,6 +42,31 @@ const questions = [
         message: "What license would you like to use for your application? (Required)",
         choices: ["MIT", "Apache", "GPL", "BSD", "None"],
     },
+
+    {
+        type: "input",
+        name: "installation",
+        message: "What are the necessary installation instructions for your application? (Required)",
+    },
+
+    {
+        type: "input",
+        name: "usageInfo",
+        message: "What are the usage instructions for your application? (Required)",
+    },
+
+    {
+        type: "input",
+        name: "help",
+        mesage: "Please list any additional contributors to your application.",
+    },
+
+    {
+        type: "input",
+        name: "test",
+        message: "What are the test instructions for your application? (Required)",
+    },
+
 ];
 
 function init() {
