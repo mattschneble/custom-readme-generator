@@ -4,11 +4,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// Create a function that returns a license badge based on which license is passed in
-// add a packet that would import generate file
-// export "require" fro a file const badmath = require('./badmath');
-
-// if there is no license, return an empty string
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -75,7 +70,7 @@ function initialize() {
     inquirer.prompt(questions)
     .then((answers) => {
         let readME = generateMarkdown(answers);
-        writeReadMeFile('./New-README-File/README.md', readME)
+        writeReadMeFile("NewREADME.md", readME)
     }).catch((error) => {
         console.log(error);
     });
