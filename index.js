@@ -3,6 +3,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const { error } = require("console");
 
 // Create a function that returns a license badge based on which license is passed in
 // add a packet that would import generate file
@@ -29,7 +30,7 @@ const questions = [
         name: "github",
         message: "What is your GitHub username? (Required)",
     },
-    
+
     {
         type: "input",
         name: "description",
@@ -87,11 +88,22 @@ inquirer
   });
 }
 
+// TODO: Create a function to initialize app
+function initialize() {
+    inquirer.prompt(questions)
+    .then((answers) => {
+        let readME = generateMarkdown(answers);
+        writeReadMeFile('./New-README-File/README.md', readME)
+    }).catch((error) => {
+        console.log(error);
+    });
+}
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeReadMeFile(fileName, data) {
 // create the readme file
+
 }
 
-// TODO: Create a function to initialize app
+
     // Function call to initialize app
-init();
+initialize();
