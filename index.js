@@ -35,7 +35,7 @@ const questions = [
         type: "list",
         name: "license",
         message: "What license would you like to use for your application? (Required)",
-        choices: ["MIT", "Apache", "GPL", "BSD", "Eclipse", "None"],
+        choices: ['MIT', 'Apache', 'GPL', 'BSD', 'Eclipse', 'None'],
     },
 
     {
@@ -52,8 +52,8 @@ const questions = [
 
     {
         type: "input",
-        name: "help",
-        mesage: "Please list any additional contributors to your application.",
+        name: "contributors",
+        message: "Please list any additional contributors to your application (Required).",
     },
 
     {
