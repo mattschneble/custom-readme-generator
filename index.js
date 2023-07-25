@@ -3,7 +3,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown.js');
-const { error } = require("console");
 
 // Create a function that returns a license badge based on which license is passed in
 // add a packet that would import generate file
@@ -70,23 +69,6 @@ const questions = [
 
 ];
 
-function init() {
-
-// ask the user questions - array
-inquirer
-  .prompt(questions)
-  // need to save the answer to the questions somehow
-  .then((answers) => {
-    console.log(answers);
-     let markdown = generateMarkdown(answers);
-     
-    // create content from the answers, potentially put them together into one long string (call generateMarkdown function)
-    // call writeToFile
-  })
-  .catch((error) => {
-   console.log(error);
-  });
-}
 
 // TODO: Create a function to initialize app
 function initialize() {
@@ -101,8 +83,14 @@ function initialize() {
 // TODO: Create a function to write README file
 function writeReadMeFile(fileName, data) {
 // create the readme file
-
-}
+fs.writeFile(fileName, data, (error) => {
+    if (error) {
+        console.log("Your README file could not be created. Please try again.");
+    } else {
+        console.log("Your README file has been created! Congratulations!");
+    }
+    })
+    }
 
 
     // Function call to initialize app
