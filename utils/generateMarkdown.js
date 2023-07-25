@@ -34,19 +34,67 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
+// TODO: Create a function that returns the license description of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseDescription(license) {
+  if(license === 'MIT') {
+    return 'This application is covered under the MIT license. Please follow the stated instructions.'
+  } else if (license === 'Apache') {
+    return 'This application is covered under the Apache license. Please follow the stated instructions.'
+  } else if (license === 'GPL') {
+    return 'This application is covered under the GPL license. Please follow the stated instructions.'
+  } else if (license === 'BSD') {
+    return 'This application is covered under the BSD license. Please follow the stated instructions.'
+  } else if (license === 'Eclipse') {
+    return 'This application is covered under the Eclipse license. Please follow the stated instructions.'
+  } else if (license === 'None') {
+    return 'This application has no license and is not governed by any instruction except explicity stated by the author.'
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  // the data that will be returned from this function. Be mindful of using MD language for this function
-  // it will potentially be generated directly onto the final readme file
   return `# ${data.apptitle}
-            ${data.description}
-            ${data.license}
+  ${renderLicenseBadge(data.license)}
 
+  ## Installation
+  ${data.installation}
+
+  ## Table of Contents
+
+  * [Description](#description)
+
+  * [Usage](#usageInfo)
+
+  * [Test](#test)
+
+  * [Contributors](#contributors)
+
+  * [License](#license)
+
+  ## Description
+  ${data.description}
+
+  ## Usage
+  ${data.usageInfo}
+
+  ## Test
+  ${data.test}
+
+  ## Contributors
+  ${data.help}
+
+  ## License
+  ${renderLicenseDescription(data.license)}
+  ${renderLicenseLink(data.license)}
+
+  ## Contact
+  If you have any questions about this application, or suggesstions for improval, please contact me at ${data.email}.
+  You can also find me on GitHub at https://github.com/${data.github}.
+
+  Thank you for using this application!
 `;
+
 }
 
 module.exports = generateMarkdown;
