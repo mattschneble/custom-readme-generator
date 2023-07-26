@@ -34,7 +34,7 @@ To install this application, clone down the GitHub repository, extract the zippe
 ## Usage
 Open up a Git Bash terminal window and navigate to the index.js file in the folder you previously determined. Enter "node index.js" and follow the onscreen prompts.
 
-[Example](./assets/2023-07-25_16-43-02.mp4)
+[Example Video](./assets/2023-07-25_16-43-02.mp4) (https://drive.google.com/drive/folders/10I01uJq1Vh2sfIo-QcjH_mYAfXwqlPUc?usp=sharing)
 
 ## Test
 There are no specific test instructions for this application.
